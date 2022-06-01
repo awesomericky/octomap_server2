@@ -14,7 +14,7 @@ from launch.substitutions import ThisLaunchFileDir
 def generate_launch_description():
 
     params = {'resolution': 0.15,
-              'frame_id': 'map',
+              'frame_id': 'base', # map
               'base_frame_id': 'base_footprint',
               'height_map': True,
               'colored_map': True,
