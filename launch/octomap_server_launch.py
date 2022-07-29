@@ -13,11 +13,11 @@ from launch.substitutions import ThisLaunchFileDir
 
 def generate_launch_description():
 
-    params = {'resolution': 0.15,
-              'frame_id': 'base', # map
-              'base_frame_id': 'base_footprint',
-              'height_map': True,
-              'colored_map': True,
+    params = {'resolution': 0.05,
+              'frame_id': 'camera_odom_frame', # map
+              'base_frame_id': 'base',
+              'height_map': False,
+              'colored_map': False,
               'color_factor': 0.8,
               'filter_ground': False,
               'filter_speckles': False,
@@ -26,7 +26,7 @@ def generate_launch_description():
               'ground_filter/plane_distance': 0.07,
               'compress_map': True,
               'incremental_2D_projection': False,
-              'sensor_model/max_range': -1.0,
+              'sensor_model/max_range': 5.0,
               'sensor_model/hit': 0.7,
               'sensor_model/miss': 0.4,
               'sensor_model/min': 0.12,
@@ -42,10 +42,10 @@ def generate_launch_description():
               'publish_free_space': False,
     }
     
-    remap = [('cloud_in', '/livox/lidar')]
+    remap = [('cloud_in', '/raibo_head_pcl2')]
     node = Node(package='octomap_server2',
                  executable='octomap_server',
-                 output='screen',
+                 output='log',
                  remappings=remap,
                  parameters=[params])
     return LaunchDescription([node])

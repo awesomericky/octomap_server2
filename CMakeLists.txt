@@ -15,6 +15,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
+set(Boost_LIBRARY_DIR_RELEASE /usr/lib/x86_64-linux-gnu)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
@@ -62,6 +63,7 @@ ament_target_dependencies(octomap_server2
   tf2
   )
 
+# target_link_libraries(octomap_server2 ${PCL_LIBRARIES} /home/raibot/yunho/octomap/octomap/lib/liboctomap.so.1.9)
 target_link_libraries(octomap_server2 ${PCL_LIBRARIES} ${OCTOMAP_LIBRARIES})
 
 rclcpp_components_register_node(octomap_server2
