@@ -14,13 +14,13 @@ mkdir build && cd build
 cmake ..
 make
 
-#############################################################
-
 # Set the built libraries in default path
 cd /usr/lib/x86_64-linux-gnu/
 mkdir octomap
 sudo cp /PATH/TO/OCTOMAP/octomap/lib/cmake/octomap/* /usr/lib/x86_64-linux-gnu/octomap/.
 sudo cp /PATH/TO/OCTOMAP/octomap/lib/liboctoma* /usr/lib/x86_64-linux-gnu/.
+
+#############################################################
 
 # Build raisin
 mv src/octomap_* ../etc/.
